@@ -1,0 +1,28 @@
+<table>
+  <tr>
+    <th>Id</th>
+    <th>Company Id</th>
+    <th>Category</th>
+    <th>Title</th>
+    <th>Description</th>
+    <th>Start Date</th>
+    <th>End Date</th>
+    <th>Amount</th>
+    <th>Price</th>
+  </tr>
+
+  <tr *ngFor="let coupon of coupons">
+    <td>{{coupon.id}}</td>
+    <td>{{coupon.companyId}}</td>
+    <td>{{coupon.category.toString()}}</td>
+    <td>{{coupon.title}}</td>
+    <td>{{coupon.description}}</td>
+    <td>{{coupon.startDate | date:'dd/MM/yyyy'}}</td>
+    <td>{{coupon.endDate | date:'dd/MM/yyyy'}}</td>
+    <td>{{coupon.amount}}</td>
+    <td>{{coupon.price}}</td>
+  </tr>
+
+</table>
+
+

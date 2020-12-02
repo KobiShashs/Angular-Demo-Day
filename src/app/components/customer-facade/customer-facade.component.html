@@ -1,0 +1,49 @@
+<p>Hello {{name}}</p>
+
+<h2>Customer Coupons</h2>
+
+<p>
+  <span>
+    <select (change)="onChangeType($event.target.value)">
+      <option selected disabled>Filter By Type</option>
+      <option>ALL</option>
+      <option>FOOD</option>
+      <option>ELECTRICITY</option>
+      <option>OTHER</option>
+    </select>
+  </span>
+  <span>
+    <input type="number" placeholder="Filter By Price" min="0" (change)="onChangePrice($event.target.value)">
+  </span>
+  <span>
+    <button [routerLink]="['/coupons-catalog']" routerLinkActive="router-link-active"  class="btn-success">Show Coupons</button>
+  </span>
+
+</p>
+<br>
+<table>
+  <tr>
+    <th>Id</th>
+    <th>Company Id</th>
+    <th>Category</th>
+    <th>Title</th>
+    <th>Description</th>
+    <th>Start Date</th>
+    <th>End Date</th>
+    <th>Amount</th>
+    <th>Price</th>
+  </tr>
+
+  <tr *ngFor="let coupon of customerCoupons">
+    <td>{{coupon.id}}</td>
+    <td>{{coupon.companyId}}</td>
+    <td>{{coupon.category.toString()}}</td>
+    <td>{{coupon.title}}</td>
+    <td>{{coupon.description}}</td>
+    <td>{{coupon.startDate | date:'dd/MM/yyyy'}}</td>
+    <td>{{coupon.endDate | date:'dd/MM/yyyy'}}</td>
+    <td>{{coupon.amount}}</td>
+    <td>{{coupon.price}}</td>
+  </tr>
+
+</table>
